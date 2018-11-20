@@ -6,7 +6,7 @@ class Node:
         self.value = 0
         self.children = []
 
-    def update_value(value):
+    def update_value(self,value):
         self.value = value
 
 
