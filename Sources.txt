@@ -1,0 +1,3 @@
+Here are links to sources we used for this project:
+
+https://en.wikipedia.org/wiki/Connect_Four#Mathematical_solution
