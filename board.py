@@ -1,8 +1,6 @@
 
 
-class Board():
-
-
+class Board:
 
     def __init__(self):
         self.board = None
@@ -31,7 +29,7 @@ class Board():
         # sep = ["-","-","-","-","-"]
 
         # board = legend + sep + row + sep + row + sep +row + sep +row + sep +row + sep
-        
+
 
     def drawBoard(self):
         """

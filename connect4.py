@@ -8,3 +8,11 @@ OUTLINE
 4. Repeat moves until someone ones (4 connected)
 """
 
+
+
+def main():
+    """
+    Play ze game :)
+    """
+
+
