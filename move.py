@@ -48,16 +48,21 @@ class Move:
             return is_row_win
 
     def makeComputerMove(self, board):
+        """
+        Allows the computer to make a move. Moves are chosen randomly.
+        :param board: array representation of board
+        :return: index position of computer's move
+        """
         #makes a random move
         valid = False
         while not valid:
             moves = self.getAvalMoves(board)
-            print("AVAL MOVES",moves)
             move = random.sample(moves,1) # assume index selection
             move = move[0]
             validMove = self.isValid(move, board)
+            # make the move by dropping it
             if validMove:
-                valid = True
+                #valid = True
 
                 if move + 15 in moves:
                     move += 15
@@ -70,7 +75,6 @@ class Move:
                     # 1st row
                 elif move in moves:
                     pass
-
                 return move
 
     def makePlayerMove(self, move,board):

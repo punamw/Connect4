@@ -73,14 +73,19 @@ def main():
     global turn, b, m
     b = Board()
     m = Move()
-    turn = "human"
     print("Welcome to Connect 4. Human plays as X, Computer as O.")
     print("To view instructions, input 'H'.")
+
+    # TODO - make loop until win
+    # TODO - make win conditions
+
+    # human turn
+    turn = "human"
     b.createBoard() #create the board to play
     b.drawBoard() #draw the board
-
     playerMove()
 
+    # computer turn
     turn = "computer"
     computerMove()
 
