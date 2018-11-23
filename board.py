@@ -44,6 +44,7 @@ class Board:
             if count % 5 == 0:
                 print(line)
                 line = "|"
+        print("\n")
 
 
     def updateBoard(self, player, position):
@@ -57,7 +58,9 @@ class Board:
         if player == "human":
             char = "X"
         else:
+            player = "computer"
             char = "O"
 
         self.board[int(position)] = char
+        print(player + " move")
         self.drawBoard()

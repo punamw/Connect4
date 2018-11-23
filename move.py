@@ -35,17 +35,25 @@ class Move:
         :return: will return winning move if exists or None --> returns winning move index!!
         """
         #retrieve current computer moves played
-        currentMoves = self.getCPMoves()
+        currentMoves = self.getCPMoves(board)
 
         #check column win
-        is_col_win = self.checkColumn(currentMoves, self.columnWins)
+        is_col_win = self.checkColumn(currentMoves, self.columnWins, board)
         if is_col_win != False:
             return is_col_win
 
         #check row win
-        is_row_win = self.checkRow(currentMoves, self.rowWins)
+        is_row_win = self.checkRow(currentMoves, self.rowWins, board)
         if is_row_win != False:
             return is_row_win
+
+        #check diagonal win
+        is_diag_win = self.checkRow(currentMoves, self.diagonalWins, board)
+        if is_diag_win != False:
+            return is_diag_win
+
+        else:
+            return False
 
     def makeComputerMove(self, board):
         """
@@ -187,14 +195,16 @@ class Move:
 
     def checkColumn(self, cpMoves, columnWins, board):
         #check for column wins
+
         for seq in columnWins:
-            checkThree = True
-            for i in seq[1:]:
-                if i not in cpMoves:
-                    checkThree = False
-                    break
-            if checkThree and board[i-5]!="X":
-                return i-5
+            count = 0
+            for i in seq:
+                if i in cpMoves:
+                    count +=1
+                else:
+                    notIn = i
+            if count ==3 and board[notIn]!="X":
+                return notIn
         return False
 
 
