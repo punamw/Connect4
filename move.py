@@ -47,7 +47,7 @@ class Move:
         if is_row_win != False:
             return is_row_win
 
-    def makeMove(self, board):
+    def makeComputerMove(self, board):
         #makes a random move
         valid = False
         while valid:
@@ -58,13 +58,87 @@ class Move:
                 valid = True
         return validMove
 
-    def isValid(self, move, board):
+    def makePlayerMove(self, move,board):
+        """
+        Sets the move for the player - with gravity. Assume valid move.
+        :return: None
+        """
+
+        # make into integer and set to proper index value
+        move = int(move)
+        move -= 1
+
         avalMoves = self.getAvalMoves(board)
-        move = int(move)+5
-        if str(move) in avalMoves:
+
+        # 4th row
+        if move + 15 in avalMoves:
+            move += 15
+        # 3rd row
+        elif move + 10 in avalMoves:
+            move += 10
+        # 2nd row
+        elif move + 5 in avalMoves:
+            move += 5
+        # 1st row
+        elif move in avalMoves:
+            pass
+
+        return move
+
+
+    def isValid(self, move, board):
+        """
+        Check if current move is legal
+        :param move: move chosen
+        :param board: array board currently used
+        :return: boolean true or false
+        """
+        # check if a number - return false if string
+        try:
+            move = int(move)
+        except Exception:
             return False
+
+        avalMoves = self.getAvalMoves(board)
+
+        # correct input to proper index found in board array
+        # ex. if input = 20, index should be 19
+        move -= 1
+
+        print(move)
+
+        ## Check if valid move
+        # Inputted value not within board
+        if move < 0 or move > 19:
+            return False
+        # 4th row
+        elif move + 15 in avalMoves:
+            pass
+        # 3rd row
+        elif move + 10 in avalMoves:
+            pass
+        # 2nd row
+        elif move + 5 in avalMoves:
+            pass
+        # 1st row
+        elif move in avalMoves:
+            pass
+        # column is full
         else:
-            return True
+            return False
+
+        return True
+
+        # #move = int(move)+5
+        # print(move)
+        #
+        # # check if available move
+        # if str(move) in avalMoves:
+        #     print(False)
+        #     return False
+        # else:
+        #     print(True)
+        #     return True
 
     def getCPMoves(self, board):
         #first find all positions that the computer holds
@@ -78,13 +152,19 @@ class Move:
         return currentMoves
 
     def getAvalMoves(self, board):
-        #get available moves, returns an array of indexes with available moves
-        i=-1
+        """
+        Find array of all possible moves the player can make
+        :param board: array board to be used
+        :return: array of possible move indexes
+        """
+
+        i = -1 # value in board
         avalMoves= []
         for char in board:
             i+=1
             if char !="X" or char !="O":
                 avalMoves.append(i)
+        print(avalMoves)
         return avalMoves
 
 
