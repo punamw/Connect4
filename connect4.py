@@ -120,7 +120,7 @@ def main():
         # computer turn
         turn = "computer"
         computerMove()
-        checkGameWin()
+        keep_playing = checkGameWin()
         if keep_playing is False:
             return False
 
