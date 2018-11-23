@@ -50,13 +50,28 @@ class Move:
     def makeComputerMove(self, board):
         #makes a random move
         valid = False
-        while valid:
+        while not valid:
             moves = self.getAvalMoves(board)
-            move = random.sample(moves)
+            print("AVAL MOVES",moves)
+            move = random.sample(moves,1) # assume index selection
+            move = move[0]
             validMove = self.isValid(move, board)
             if validMove:
                 valid = True
-        return validMove
+
+                if move + 15 in moves:
+                    move += 15
+                    # 3rd row
+                elif move + 10 in moves:
+                    move += 10
+                    # 2nd row
+                elif move + 5 in moves:
+                    move += 5
+                    # 1st row
+                elif move in moves:
+                    pass
+
+                return move
 
     def makePlayerMove(self, move,board):
         """
@@ -156,12 +171,12 @@ class Move:
         :return: array of possible move indexes
         """
 
-        i = -1 # value in board
+        #i = -1 # value in board
         avalMoves= []
         for char in board:
-            i+=1
-            if char !="X" or char !="O":
-                avalMoves.append(i)
+            #i+=1
+            if char !="X" and char !="O":
+                avalMoves.append(board.index(char))
         return avalMoves
 
 

@@ -13,11 +13,14 @@ def playerMove():
 
     runCheck = True
 
+    # check input and keep running until actual move is made
     while runCheck:
         pmove = input("Enter a move: ")
+        # instructions
         if pmove.upper() == "H":
             displayInstructions()
             b.drawBoard()
+        # else just an attempted move
         else:
             pvalid = m.isValid(pmove, board)
             # if true - valid move
@@ -28,8 +31,22 @@ def playerMove():
                 runCheck = False
     return
 
+def computerMove():
+    """
+    Let the computer make a move.
+    :return: None
+    """
+    board = b.getBoard()
+
+    cmove = m.makeComputerMove(board)
+    b.updateBoard("computer", cmove)
+
 def displayInstructions():
-    goals = """
+    """
+    Display game instructions.
+    :return: None
+    """
+    instructions = """
     GOAL
     The point of the game is get 4 of your tiles (X) in a row either diagonally, horizontally, or vertically. 
     
@@ -42,7 +59,7 @@ def displayInstructions():
     WINNING
     The game ends once either player gets 4 tiles in a row.
             """
-    print(goals)
+    print(instructions)
 
 
 def main():
@@ -51,7 +68,7 @@ def main():
     1. Draw board + create it
     2. Player move
     3. Computer move
-    4. Repeat moves until someone ones (4 connected)
+    4. Repeat moves until someone one wins (4 connected)
     """
     global turn, b, m
     b = Board()
@@ -63,6 +80,9 @@ def main():
     b.drawBoard() #draw the board
 
     playerMove()
+
+    turn = "computer"
+    computerMove()
 
 
 main()
