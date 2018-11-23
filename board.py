@@ -24,7 +24,7 @@ class Board:
         self.board = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
                  "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"]
 
-        
+
 
 
     def getBoard(self):
@@ -35,11 +35,14 @@ class Board:
         Draw the board lol
         :return:
         """
+        line = "|"
         for i in self.board:
-            display = str(i) + "|"
-            print(display)
-            if i % 5 == 0:
-                print("\n")
+            display = i + "|"
+            line += display
+            if int(i) % 5 == 0:
+                print(line)
+                line = "|"
+                
 
     def updateBoard(self, player, position):
         """

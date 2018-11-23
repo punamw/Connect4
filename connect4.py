@@ -11,6 +11,8 @@ OUTLINE
 from move import Move
 from board import Board
 
+def playerTurn():
+    return
 
 
 
@@ -19,7 +21,12 @@ def main():
     """
     Play ze game :)
     """
+    b = Board()
+    m = Move()
     turn = "player"
     print("Welcome to Connect 4 /n Human plays as X, Computer as O")
-    Board.drawBoard()
-    
+    b.createBoard() #create the board to play
+    b.drawBoard() #draw the board
+
+
+main()
