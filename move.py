@@ -105,8 +105,6 @@ class Move:
         # ex. if input = 20, index should be 19
         move -= 1
 
-        print(move)
-
         ## Check if valid move
         # Inputted value not within board
         if move < 0 or move > 19:
@@ -164,7 +162,6 @@ class Move:
             i+=1
             if char !="X" or char !="O":
                 avalMoves.append(i)
-        print(avalMoves)
         return avalMoves
 
 
