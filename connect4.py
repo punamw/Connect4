@@ -11,7 +11,16 @@ OUTLINE
 from move import Move
 from board import Board
 
-def playerTurn():
+def playerMove():
+    global turn
+    board = b.getBoard()
+    isValid = True
+    while isValid:
+        pmove = input("Enter number of move to make: ")
+        pvalid = m.isValid(pmove, board)
+        if pmove:
+            b.updateBoard(turn, pmove)
+            isValid = False
     return
 
 
@@ -21,12 +30,15 @@ def main():
     """
     Play ze game :)
     """
+    global turn, b, m
     b = Board()
     m = Move()
-    turn = "player"
-    print("Welcome to Connect 4 /n Human plays as X, Computer as O")
+    turn = "human"
+    print("Welcome to Connect 4. Human plays as X, Computer as O.")
     b.createBoard() #create the board to play
     b.drawBoard() #draw the board
+
+    playerMove()
 
 
 main()

@@ -36,13 +36,15 @@ class Board:
         :return:
         """
         line = "|"
+        count=0
         for i in self.board:
+            count+=1
             display = i + "|"
             line += display
-            if int(i) % 5 == 0:
+            if count % 5 == 0:
                 print(line)
                 line = "|"
-                
+
 
     def updateBoard(self, player, position):
         """
@@ -57,5 +59,5 @@ class Board:
         else:
             char = "O"
 
-        self.board[position] = char
+        self.board[int(position)] = char
         self.drawBoard()
