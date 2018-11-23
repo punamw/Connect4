@@ -6,14 +6,23 @@ from win import Win
 
 
 def checkGameWin():
-    "Check if move played resulted in a win"
-    global turn, play
+    """
+    Check if move played resulted in a win. Return false if keep playing and no win condition.
+    :return: boolean true or false
+    """
+
+    global turn#, play
     board = b.getBoard()
     isWin = w.checkAll(turn, board)
     if isWin == True:
-        play = False
-        print("YOU WON!!")
-    return
+        #play = False
+        if turn == "human":
+            print("YOU WON!!")
+        else:
+            print("YOU LOSE :(")
+        return False
+    else:
+        return True
 
 def playerMove():
     """
@@ -94,23 +103,26 @@ def main():
     b = Board()
     m = Move()
     w = Win()
-    play = True
+    #play = True
     print("Welcome to Connect 4. Human plays as X, Computer as O.")
     print("To view instructions, input 'H'.")
 
     b.createBoard() #create the board to play
     b.drawBoard() #draw the board
 
-    while play:
+    while True:
         # human turn
         turn = "human"
         playerMove()
-        checkGameWin()
-
+        keep_playing = checkGameWin() # FIXME - variable play will not affect this loop since it is a copy
+        if keep_playing is False:
+            return False
         # computer turn
         turn = "computer"
         computerMove()
         checkGameWin()
+        if keep_playing is False:
+            return False
 
     #TODO:return the winner
 
