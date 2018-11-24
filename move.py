@@ -166,8 +166,12 @@ class Move:
         #     return True
 
     def getCPMoves(self, board):
-        #first find all positions that the computer holds
-        #currentMoves holds the indices where the computer has made a move
+        """
+        Finds all the positions that the computer (O) currently holds.
+        :param board: current board
+        :return: array of index positions that the computer holds
+        """
+        # currentMoves holds the indices where the computer has made a move
         currentMoves = []
         i=-1
         for char in board:
@@ -194,7 +198,13 @@ class Move:
 
 
     def checkColumn(self, cpMoves, columnWins, board):
-        #check for column wins
+        """
+        Check for column wins
+        :param cpMoves: computer move (index)
+        :param columnWins: array of sets containing winning column positions
+        :param board: current board
+        :return: boolean false or index position
+        """
 
         for seq in columnWins:
             count = 0
@@ -211,6 +221,13 @@ class Move:
 
 
     def checkRow(self,cpMoves, rowWins, board):
+        """
+        Check for row wins
+        :param cpMoves: computer move index
+        :param rowWins: array of sets for row wins indexes
+        :param board: current board
+        :return: false or index position
+        """
         #check for row wins
         for seq in rowWins:
             count = 0
@@ -224,7 +241,13 @@ class Move:
         return False
 
     def checkDiagonal(self, cpMoves, diagonalWins, board):
-        #check for diagonal wins
+        """
+        Check for diagonal wins
+        :param cpMoves: computer move index
+        :param rowWins: array of sets for row wins indexes
+        :param board: current board
+        :return: false or index position
+        """
         for seq in diagonalWins:
             checkThree = True
             for i in seq[1:]:
