@@ -10,8 +10,8 @@ We chose Connect 4 as our game. We chose this because it is very similar to some
 #### Did you implement a solver, or a player? Why?  
 We implemented a player. We chose to implement a player rather than a solver because it seemed more straight-forward to code and it seemed more interesting than implementing a solver. We liked the idea of making a player 
 #### List each group member’s contribution to the project.  
-Punam:  Implemented the board class
-Katherine: Implemented gravity functionality 
+Punam:  Implemented the board class, implemented functions to check for computer win conditions.   
+Katherine: Implemented gravity functionality, fixed bugs, code documentation.    
 Diane: Researched how about how to implement minimax and attempted to implement minimax psuedocode in python (although this did not make it into the final version of the assignment code).  
 #### What part of this project was most difficult?  
 Trying to implement minimax was difficult and we were unable to implement it fully due to time constraints. Implementing the "gravity" part of the game was also difficult, originally we had some trouble getting this to work properly. 
