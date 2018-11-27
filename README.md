@@ -12,7 +12,7 @@ We implemented a player. We chose to implement a player rather than a solver bec
 #### List each group member’s contribution to the project.  
 Punam:  Implemented the board class, implemented functions to check for computer win conditions.   
 Katherine: Implemented gravity functionality, fixed bugs, code documentation.    
-Diane: Researched how about how to implement minimax and attempted to implement minimax psuedocode in python (although this did not make it into the final version of the assignment code).  
+Diane: Researched how to implement minimax and attempted to implement minimax psuedocode in python (although this did not make it into the final version of the assignment code).  
 #### What part of this project was most difficult?  
 Trying to implement minimax was difficult and we were unable to implement it fully due to time constraints. Implementing the "gravity" part of the game was also difficult, originally we had some trouble getting this to work properly. 
 #### What part of this project was most rewarding?  
